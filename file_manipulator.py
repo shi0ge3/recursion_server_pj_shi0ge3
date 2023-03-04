@@ -21,10 +21,12 @@ import sys
 説明：inputpath にあるファイルを受け取り、outputpath に inputpath の内容を逆にした新しいファイルを作成します。
 """
 def reverse_line(input_path, output_path):
-    with open(input_path, "r") as f:
-        with open(output_path, "w") as out_f:
-            for line in f:
-                out_f.write(line[::-1] + "\n")
+    with open(input_path, "r") as input_f:
+        contents = input_f.readlines()
+
+    with open(output_path, 'w') as out_f:
+        for line in contents:
+            out_f.writelines(line[::-1])
 
 
 """
